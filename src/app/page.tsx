@@ -49,6 +49,14 @@ export default function Home() {
 
       <section className="mx-auto max-w-3xl pb-16">
         <Reveal>
+            <h2 className="mb-8 border-b border-border pb-3 font-heading text-subheading leading-subheading">
+              Skills & Technologies
+            </h2>
+          </Reveal>
+      </section>
+
+      <section className="mx-auto max-w-3xl pb-16">
+        <Reveal>
           <h2 className="mb-8 border-b border-border pb-3 font-heading text-subheading leading-subheading">
             Education
           </h2>

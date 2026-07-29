@@ -16,8 +16,9 @@
   --color-oat-warm: #e3dacc;
   --color-manilla: #f5e3c7;
   --color-clay: #d97757;
+  --color-clay-pale: #deb5a4;
   --color-clay-deep: #c6613f;
-
+  --color-clay-dark: #774635;
 
   --color-cloud-deep: #6b6a63;
 
@@ -131,6 +132,8 @@
   --accent-clay: var(--color-clay);
   --accent-clay-foreground: var(--color-slate-dark);
   --accent-clay-hover: var(--color-clay-deep);
+
+  --selection: var(--color-clay-pale);
 }
 
 .dark {
@@ -158,6 +161,8 @@
   --accent-clay: var(--color-clay-light);
   --accent-clay-foreground: var(--color-ink);
   --accent-clay-hover: var(--color-clay-soft);
+
+  --selection: var(--color-clay-dark);
 }
 
 @layer base {
@@ -173,5 +178,5 @@
 }
 
 ::selection{
-  background: #deb5a4
+  background: var(--selection);
 }

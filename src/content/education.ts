@@ -16,4 +16,10 @@ export const education: Education[] = [
     degree: "Exchange programme",
     dates: { start: "2025-02", end: "2025-06" },
   },
+  {
+    institution: "La Salle College",
+    institutionUrl: "https://www.lasalle.edu.hk/",
+    degree: "HKDSE",
+    dates: { start: "2016-09", end: "2022-07"}
+  }
 ];
