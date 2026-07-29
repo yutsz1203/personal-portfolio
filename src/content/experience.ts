@@ -7,10 +7,9 @@ export const experience: Experience[] = [
     role: "Data Science Research Intern",
     dates: { start: "2026-01", end: "2026-05" },
     highlights: [
-      "Placeholder highlight — what was built, for whom, and the measurable result.",
-      "Placeholder highlight — second piece of work.",
+      "Built a Thematic Portfolio Engine."
     ],
-    tech: ["Python", "SQL"],
+    tech: ["Python", "sentence-transformer", "DeepSeek API", "PostgreSQL"],
   },
   {
     company: "Optix Solutions",
@@ -18,18 +17,16 @@ export const experience: Experience[] = [
     role: "Software Engineer Intern",
     dates: { start: "2024-06", end: "2024-08" },
     highlights: [
-      "Placeholder highlight.",
-      "Placeholder highlight.",
-      "Placeholder highlight.",
+      "Shipped two web applications."
     ],
-    tech: ["React", "Python"],
+    tech: ["React", "Python", "Flask", "PostgreSQL"],
   },
   {
     company: "Securities and Futures Commission of Hong Kong",
     companyUrl: "https://www.sfc.hk/en/",
     role: "Winter Intern",
     dates: { start: "2023-12", end: "2024-01" },
-    highlights: ["Placeholder highlight.", "Placeholder highlight."],
-    tech: ["MS Office", "Canva"],
+    highlights: ["Drafted cost containment plans and conducted basic economic research."],
+    tech: ["Excel", "Canva"],
   },
 ];

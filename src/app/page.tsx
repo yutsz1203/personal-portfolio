@@ -1,115 +1,54 @@
 import Link from "next/link";
 
-import { books } from "@/content/books";
+import { Hero } from "@/components/sections/hero";
+import { Timeline, type TimelineEntry } from "@/components/sections/timeline";
 import { education } from "@/content/education";
 import { experience } from "@/content/experience";
-import { profile } from "@/content/profile";
-import { featuredProjects } from "@/content/projects";
-import { skills } from "@/content/skills";
+import { formatDateRange } from "@/lib/format-date";
+
+const experienceEntries: TimelineEntry[] = experience.map((item) => ({
+  date: formatDateRange(item.dates),
+  title: item.company,
+  titleUrl: item.companyUrl,
+  subtitle: item.role,
+  bullets: item.highlights,
+  tags: item.tech,
+}));
+
+const educationEntries: TimelineEntry[] = education.map((item) => ({
+  date: formatDateRange(item.dates),
+  title: item.institution,
+  subtitle: item.classification
+    ? `${item.degree}, ${item.classification}`
+    : item.degree,
+  bullets: item.highlights,
+}));
 
 export default function Home() {
   return (
-    <main>
-      <h1>{profile.name}</h1>
-      <p>{profile.title}</p>
-      <p>{profile.summary}</p>
-      <ul>
-        <li>
-          <a href={`mailto:${profile.email}`}>{profile.email}</a>
-        </li>
-        <li>
-          <a href={profile.linkedinUrl}>LinkedIn</a>
-        </li>
-      </ul>
+    <main className="px-6">
+      <div className="mx-auto max-w-4xl">
+        <Hero />
+      </div>
 
-      <h2>Experience</h2>
-      <ul>
-        {experience.map((item) => (
-          <li key={`${item.company}-${item.role}`}>
-            <p>
-              {item.dates.start} – {item.dates.end ?? "Present"}
-            </p>
-            <h3>
-              {item.companyUrl ? (
-                <a href={item.companyUrl}>{item.company}</a>
-              ) : (
-                item.company
-              )}
-            </h3>
-            <p>{item.role}</p>
-            <ul>
-              {item.highlights.map((highlight) => (
-                <li key={highlight}>{highlight}</li>
-              ))}
-            </ul>
-            <ul>
-              {item.tech.map((tech) => (
-                <li key={tech}>{tech}</li>
-              ))}
-            </ul>
-          </li>
-        ))}
-      </ul>
+      <section className="mx-auto max-w-3xl pb-16">
+        <h2 className="mb-8 border-b border-border pb-3 font-heading text-subheading leading-subheading">
+          Experience
+        </h2>
+        <Timeline entries={experienceEntries} />
+      </section>
 
-      <h2>Education</h2>
-      <ul>
-        {education.map((item) => (
-          <li key={`${item.institution}-${item.degree}`}>
-            <p>
-              {item.dates.start} – {item.dates.end ?? "Present"}
-            </p>
-            <h3>{item.institution}</h3>
-            <p>
-              {item.degree}
-              {item.classification ? `, ${item.classification}` : ""}
-            </p>
-            {item.highlights ? (
-              <ul>
-                {item.highlights.map((highlight) => (
-                  <li key={highlight}>{highlight}</li>
-                ))}
-              </ul>
-            ) : null}
-          </li>
-        ))}
-      </ul>
+      <section className="mx-auto max-w-3xl pb-16">
+        <h2 className="mb-8 border-b border-border pb-3 font-heading text-subheading leading-subheading">
+          Education
+        </h2>
+        <Timeline entries={educationEntries} />
+      </section>
 
-      <h2>
+      <section className="mx-auto flex max-w-3xl gap-6 pb-16 text-body-sm">
         <Link href="/projects">Projects</Link>
-      </h2>
-      <ul>
-        {featuredProjects.map((project) => (
-          <li key={project.slug}>
-            <h3>{project.name}</h3>
-            <p>{project.blurb}</p>
-            {project.liveUrl ? <a href={project.liveUrl}>Live</a> : null}
-            {project.repoUrl ? <a href={project.repoUrl}>Source</a> : null}
-          </li>
-        ))}
-      </ul>
-
-      <h2>Skills</h2>
-      {skills.map((group) => (
-        <div key={group.label}>
-          <h3>{group.label}</h3>
-          <ul>
-            {group.skills.map((skill) => (
-              <li key={skill.name}>{skill.name}</li>
-            ))}
-          </ul>
-        </div>
-      ))}
-
-      <h2>
         <Link href="/books">Books</Link>
-      </h2>
-      <ul>
-        {books.map((book) => (
-          <li key={book.title}>
-            {book.title} — {book.author}
-          </li>
-        ))}
-      </ul>
+      </section>
     </main>
   );
 }
