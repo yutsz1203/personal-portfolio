@@ -1,7 +1,7 @@
 "use client";
 
 
-import { motion, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
 import type { ReactNode } from "react";
 
 import { ITEM_DISTANCE } from "@/components/motion/timing";
@@ -21,9 +21,7 @@ export function Reveal({
   delay = 0,
   trigger = "view",
 }: RevealProps) {
-  const reduceMotion = useReducedMotion();
-
-  const hidden = { opacity: 0, y: reduceMotion ? 0 : ITEM_DISTANCE };
+  const hidden = { opacity: 0, y: ITEM_DISTANCE };
   const shown = { opacity: 1, y: 0 };
 
   return (
@@ -31,8 +29,8 @@ export function Reveal({
       className={className}
       initial={hidden}
       transition={{
-        duration: reduceMotion ? 0 : 0.5,
-        delay: reduceMotion ? 0 : delay,
+        duration: 0.5,
+        delay,
         ease: "easeOut",
       }}
       {...(trigger === "mount"

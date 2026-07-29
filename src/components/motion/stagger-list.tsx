@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion, type Variants } from "motion/react";
+import { motion, type Variants } from "motion/react";
 import type { ReactNode } from "react";
 
 import type { MotionTrigger } from "@/components/motion/reveal";
@@ -54,17 +54,12 @@ export function StaggerList({
   delay = 0,
   trigger = "view",
 }: StaggerListProps) {
-  const reduceMotion = useReducedMotion();
   const Tag = motion[as] as typeof motion.div;
 
   return (
     <Tag
       className={className}
-      variants={containerVariants(
-        reduceMotion ? 0 : stagger,
-        reduceMotion ? 0 : delay,
-        reduceMotion ? 0 : ITEM_DURATION,
-      )}
+      variants={containerVariants(stagger, delay, ITEM_DURATION)}
       initial="hidden"
       {...(trigger === "mount"
         ? { animate: "shown" }
@@ -80,17 +75,10 @@ export function StaggerItem({
   className,
   as = "div",
 }: StaggerItemProps) {
-  const reduceMotion = useReducedMotion();
   const Tag = motion[as] as typeof motion.div;
 
   return (
-    <Tag
-      className={className}
-      variants={itemVariants(
-        reduceMotion ? 0 : ITEM_DISTANCE,
-        reduceMotion ? 0 : ITEM_DURATION,
-      )}
-    >
+    <Tag className={className} variants={itemVariants(ITEM_DISTANCE, ITEM_DURATION)}>
       {children}
     </Tag>
   );
