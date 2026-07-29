@@ -4,7 +4,7 @@ import {Button} from "./ui/button"
 const SOCIAL_LINKS = [
   { href: "mailto:mervinyu@link.cuhk.edu.hk", label: "Email", icon: Icons.mail },
   { href: "https://github.com/yutsz1203", label: "GitHub", icon: Icons.github},
-  { href: "https://www.linkedin.com/in/mervin-yu-639748161", label: "LinkedIn", icon: Icons.linkedin },
+  { href: "https://www.linkedin.com/in/mervin-yu", label: "LinkedIn", icon: Icons.linkedin },
   { href: "https://leetcode.com/u/yutsz", label: "LeetCode", icon: Icons.leetcode },
 ] as const;
 
