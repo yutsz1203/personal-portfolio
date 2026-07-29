@@ -13,9 +13,9 @@ export const profile: Profile = {
       href: "https://www.cdas.cuhk.edu.hk/",
     },
     {
-      text: ". I enjoy applying statistics and code to find quantifiable patterns and edges ",
+      text: ". I enjoy applying statistics and code to discover quantifiable patterns and edges ",
     },
-    { text: "in markets, in football, in anything else I find interesting", bold: true },
+    { text: "in markets, in football, in anything else interesting", bold: true },
     { text: "." },
   ],
   photo: {
