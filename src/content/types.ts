@@ -56,9 +56,29 @@ export type Book = {
   note?: string;
 };
 
+export type SkillSlug =
+  | "python"
+  | "typescript"
+  | "r"
+  | "pandas"
+  | "numpy"
+  | "scikitlearn"
+  | "react"
+  | "tailwindcss"
+  | "nextdotjs"
+  | "postgresql"
+  | "mysql"
+  | "git"
+  | "github"
+  | "claudecode"
+  | "linux"
+  | "vercel"
+  | "docker"
+  | "postman";
+
 export type Skill = {
   name: string;
-  slug?: string;
+  slug: SkillSlug;
 };
 
 export type SkillGroup = {
