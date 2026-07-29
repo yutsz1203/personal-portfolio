@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { MobileNav } from "@/components/mobile-nav";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { StaggerList, StaggerItem } from "./motion/stagger-list"
 
@@ -10,6 +11,8 @@ const NAV_LINKS = [
   { href: "/#education", label: "Education" },
   { href: "/books", label: "Books" },
 ] as const;
+
+export type NavLink = (typeof NAV_LINKS)[number];
 
 
 const NAV_LINK_CLASS =
@@ -29,24 +32,26 @@ export function NavBar() {
           Mervin Yu
         </Link>
 
-        <StaggerList as="ul" trigger="mount" stagger={0.2} delay={0.15} className="flex items-center gap-1">
-          {NAV_LINKS.map(({ href, label }) => (
-            <StaggerItem as="li" key={href}>
-              {href.startsWith("/#") ? (
-                <a href={href} className={NAV_LINK_CLASS}>
-                  {label}
-                </a>
-              ) : (
-                <Link href={href} className={NAV_LINK_CLASS}>
-                  {label}
-                </Link>
-              )}
-            </StaggerItem>
-          ))}
-          <StaggerItem as="li" className="ml-1">
-            <ThemeToggle />
-          </StaggerItem>
-        </StaggerList>
+        <div className="flex items-center gap-1">
+          <StaggerList as="ul" trigger="mount" stagger={0.2} delay={0.15} className="hidden items-center gap-1 md:flex">
+            {NAV_LINKS.map(({ href, label }) => (
+              <StaggerItem as="li" key={href}>
+                {href.startsWith("/#") ? (
+                  <a href={href} className={NAV_LINK_CLASS}>
+                    {label}
+                  </a>
+                ) : (
+                  <Link href={href} className={NAV_LINK_CLASS}>
+                    {label}
+                  </Link>
+                )}
+              </StaggerItem>
+            ))}
+          </StaggerList>
+
+          <ThemeToggle />
+          <MobileNav links={NAV_LINKS} className="md:hidden" />
+        </div>
       </nav>
     </header>
   );
