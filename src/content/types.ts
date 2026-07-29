@@ -5,6 +5,14 @@ export type DateRange = {
   end: string | null;
 };
 
+export type TextSegment = {
+  text: string;
+  bold?: boolean;
+  href?: string;
+};
+
+export type RichText = TextSegment[];
+
 export type Image = {
   src: string;
   alt: string;
@@ -60,7 +68,7 @@ export type SkillGroup = {
 export type Profile = {
   name: string;
   title: string;
-  summary: string;
+  summary: RichText;
   photo: Image;
   email: string;
   linkedinUrl: string;
