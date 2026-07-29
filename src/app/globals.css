@@ -171,3 +171,7 @@
     text-underline-offset: 0.2em;
   }
 }
+
+::selection{
+  background: #deb5a4
+}

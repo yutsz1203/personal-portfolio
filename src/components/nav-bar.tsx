@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { ThemeToggle } from "@/components/theme-toggle";
+import { StaggerList, StaggerItem } from "./motion/stagger-list"
 
 const NAV_LINKS = [
   { href: "/projects", label: "Projects" },
@@ -21,21 +22,21 @@ export function NavBar() {
           Mervin Yu
         </Link>
 
-        <ul className="flex items-center gap-1">
+        <StaggerList as="ul" trigger="mount" stagger={0.2} delay={0.15} className="flex items-center gap-1">
           {NAV_LINKS.map(({ href, label }) => (
-            <li key={href}>
+            <StaggerItem as="li" key={href}>
               <Link
                 href={href}
                 className="px-3 py-2 text-xs font-medium tracking-tight text-muted-foreground no-underline transition-colors hover:text-foreground"
               >
                 {label}
               </Link>
-            </li>
+            </StaggerItem>
           ))}
-          <li className="ml-1">
+          <StaggerItem as="li" className="ml-1">
             <ThemeToggle />
-          </li>
-        </ul>
+          </StaggerItem>
+        </StaggerList>
       </nav>
     </header>
   );

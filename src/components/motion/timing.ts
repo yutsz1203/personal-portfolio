@@ -1,0 +1,11 @@
+export const ITEM_DISTANCE = 12;
+export const ITEM_DURATION = 0.4;
+
+export const HERO_ENTRANCE_DELAY = 0.15;
+export const HERO_ENTRANCE_STAGGER = 0.12;
+export const HERO_ITEM_COUNT = 5;
+
+export const HERO_ENTRANCE_END =
+  HERO_ENTRANCE_DELAY +
+  HERO_ENTRANCE_STAGGER * (HERO_ITEM_COUNT - 1) +
+  ITEM_DURATION;

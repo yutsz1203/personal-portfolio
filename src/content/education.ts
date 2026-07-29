@@ -4,13 +4,15 @@ import type { Education } from "./types";
 export const education: Education[] = [
   {
     institution: "The Chinese University of Hong Kong",
-    degree: "BSc Computational Data Science",
+    institutionUrl: "https://www.cuhk.edu.hk/english/",
+    degree: "B.Sc. in Computational Data Science",
     classification: "First Class Honours",
     dates: { start: "2022-09", end: "2026-07" },
     highlights: ["Minor in Risk Management Science."],
   },
   {
     institution: "Graz University of Technology, Austria",
+    institutionUrl: "https://www.tugraz.at/en/home",
     degree: "Exchange programme",
     dates: { start: "2025-02", end: "2025-06" },
   },

@@ -22,6 +22,7 @@ export type Image = {
 
 export type Education = {
   institution: string;
+  institutionUrl?: string;
   degree: string;
   classification?: string;
   dates: DateRange;

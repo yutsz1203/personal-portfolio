@@ -1,3 +1,6 @@
+import type { MotionTrigger } from "@/components/motion/reveal";
+import { StaggerItem, StaggerList } from "@/components/motion/stagger-list";
+
 export type TimelineEntry = {
   date: string;
   title: string;
@@ -7,11 +10,28 @@ export type TimelineEntry = {
   tags?: string[];
 };
 
-export function Timeline({ entries }: { entries: TimelineEntry[] }) {
+export function Timeline({
+  entries,
+  delay = 0,
+  trigger = "view",
+}: {
+  entries: TimelineEntry[];
+  delay?: number;
+  trigger?: MotionTrigger;
+}) {
   return (
-    <ol className="relative ml-1 border-l border-border">
+    <StaggerList
+      as="ol"
+      delay={delay}
+      trigger={trigger}
+      className="relative ml-1 border-l border-border"
+    >
       {entries.map((entry) => (
-        <li key={`${entry.title}-${entry.date}`} className="relative pb-10 pl-6 last:pb-0">
+        <StaggerItem
+          as="li"
+          key={`${entry.title}-${entry.date}`}
+          className="relative pb-10 pl-6 last:pb-0"
+        >
           <span
             aria-hidden
             className="absolute top-2 -left-[4.5px] size-2 rounded-full bg-muted-foreground"
@@ -56,8 +76,8 @@ export function Timeline({ entries }: { entries: TimelineEntry[] }) {
               {entry.tags.join(" · ")}
             </p>
           ) : null}
-        </li>
+        </StaggerItem>
       ))}
-    </ol>
+    </StaggerList>
   );
 }
