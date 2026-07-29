@@ -7,23 +7,41 @@ export const skills: SkillGroup[] = [
       { name: "Python", slug: "python" },
       { name: "TypeScript", slug: "typescript" },
       { name: "R", slug: "r" },
-      { name: "SQL" },
     ],
   },
   {
     label: "Data & ML",
     skills: [
       { name: "pandas", slug: "pandas" },
+      { name: "NumPy", slug: "numpy" },
       { name: "scikit-learn", slug: "scikitlearn" },
-      { name: "PyTorch", slug: "pytorch" },
     ],
   },
   {
-    label: "Tools",
+    label: "Web Development",
+    skills: [
+      { name: "React", slug: "react" },
+      { name: "Tailwind CSS", slug: "tailwindcss" },
+      { name: "Next.js", slug: "nextdotjs" },
+    ],
+  },
+  {
+    label: "Databases",
+    skills: [
+      { name: "PostgreSQL", slug: "postgresql" },
+      { name: "MySQL", slug: "mysql" },
+    ],
+  },
+  {
+    label: "Tools & Infrastructure",
     skills: [
       { name: "Git", slug: "git" },
+      { name: "GitHub", slug: "github" },
+      { name: "Claude Code", slug: "claudecode" },
+      { name: "Linux", slug: "linux" },
+      { name: "Vercel", slug: "vercel" },
       { name: "Docker", slug: "docker" },
-      { name: "Next.js", slug: "nextdotjs" },
+      { name: "Postman", slug: "postman" },
     ],
   },
 ];

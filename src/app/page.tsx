@@ -3,9 +3,11 @@ import Link from "next/link";
 import { Reveal } from "@/components/motion/reveal";
 import { HERO_ENTRANCE_END } from "@/components/motion/timing";
 import { Hero } from "@/components/sections/hero";
+import { Skills } from "@/components/sections/skills";
 import { Timeline, type TimelineEntry } from "@/components/sections/timeline";
 import { education } from "@/content/education";
 import { experience } from "@/content/experience";
+import { skills } from "@/content/skills";
 import { formatDateRange } from "@/lib/format-date";
 
 const experienceEntries: TimelineEntry[] = experience.map((item) => ({
@@ -33,8 +35,7 @@ export default function Home() {
       <div className="mx-auto max-w-4xl">
         <Hero />
       </div>
-
-      <section className="mx-auto max-w-3xl pb-16">
+      <section id="experience"  aria-labelledby="experience-heading" className="mx-auto max-w-3xl pb-16">
         <Reveal trigger="mount" delay={HERO_ENTRANCE_END}>
           <h2 className="mb-8 border-b border-border pb-3 font-heading text-subheading leading-subheading">
             Experience
@@ -49,13 +50,22 @@ export default function Home() {
 
       <section className="mx-auto max-w-3xl pb-16">
         <Reveal>
-            <h2 className="mb-8 border-b border-border pb-3 font-heading text-subheading leading-subheading">
-              Skills & Technologies
-            </h2>
-          </Reveal>
+          <h2 className="mb-8 border-b border-border pb-3 font-heading text-subheading leading-subheading">
+            Projects
+          </h2>
+        </Reveal>
       </section>
 
-      <section className="mx-auto max-w-3xl pb-16">
+      <section id="skills" className="mx-auto max-w-3xl pb-16">
+        <Reveal>
+          <h2 className="mb-8 border-b border-border pb-3 font-heading text-subheading leading-subheading">
+            Skills & Technologies
+          </h2>
+        </Reveal>
+        <Skills groups={skills} />
+      </section>
+
+      <section id="education" className="mx-auto max-w-3xl pb-16">
         <Reveal>
           <h2 className="mb-8 border-b border-border pb-3 font-heading text-subheading leading-subheading">
             Education
@@ -64,10 +74,13 @@ export default function Home() {
         <Timeline entries={educationEntries} />
       </section>
 
-      <Reveal className="mx-auto flex max-w-3xl gap-6 pb-16 text-body-sm">
-        <Link href="/projects">Projects</Link>
-        <Link href="/books">Books</Link>
-      </Reveal>
+      <section className="mx-auto max-w-3xl pb-16">
+        <Reveal>
+          <h2 className="mb-8 border-b border-border pb-3 font-heading text-subheading leading-subheading">
+            Books
+          </h2>
+        </Reveal>
+      </section>
     </main>
   );
 }
