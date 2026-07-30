@@ -17,7 +17,7 @@ export const experience: Experience[] = [
     role: "Software Engineer Intern",
     dates: { start: "2024-06", end: "2024-08" },
     highlights: [
-      "Shipped two web applications."
+      "Shipped two full-stack web applications."
     ],
     tech: ["React", "Python", "Flask", "PostgreSQL"],
   },
