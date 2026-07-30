@@ -1,24 +1,31 @@
 import { projects } from "@/content/projects";
+import type { ProjectRowEntry } from "@/components/sections/project-row";
+import { Projects } from "@/components/sections/projects";
+import { Reveal } from "@/components/motion/reveal";
+
+const allProjectRows: ProjectRowEntry[] = projects
+  .map(({ slug, name, blurb, image, tech, liveUrl, repoUrl }) => ({
+    slug,
+    name,
+    blurb,
+    image,
+    tech,
+    liveUrl,
+    repoUrl,
+  }));
+
 
 export default function ProjectsPage() {
   return (
     <main>
-      <h1>Projects</h1>
-      <ul>
-        {projects.map((project) => (
-          <li key={project.slug}>
-            <h2>{project.name}</h2>
-            <p>{project.blurb}</p>
-            <ul>
-              {project.tech.map((tech) => (
-                <li key={tech}>{tech}</li>
-              ))}
-            </ul>
-            {project.liveUrl ? <a href={project.liveUrl}>Live</a> : null}
-            {project.repoUrl ? <a href={project.repoUrl}>Source</a> : null}
-          </li>
-        ))}
-      </ul>
+      <section className="mx-auto max-w-3xl pb-16">
+          <Reveal>
+            <h2 className="mb-8 border-b border-border pb-3 font-heading text-subheading leading-subheading">
+              Projects
+            </h2>
+          </Reveal>
+          <Projects entries={allProjectRows} />
+        </section>
     </main>
   );
 }

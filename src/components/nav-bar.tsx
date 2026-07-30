@@ -9,7 +9,7 @@ const NAV_LINKS = [
   { href: "/projects", label: "Projects" },
   { href: "/#skills", label: "Skills & Technologies" },
   { href: "/#education", label: "Education" },
-  { href: "/books", label: "Books" },
+  // { href: "/books", label: "Books" },
 ] as const;
 
 export type NavLink = (typeof NAV_LINKS)[number];
