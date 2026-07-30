@@ -21,7 +21,7 @@ import {
   SiVercel,
 } from "react-icons/si";
 import { FaLinkedin } from "react-icons/fa6";
-import { LuMail } from "react-icons/lu";
+import { LuArrowUpRight, LuMail } from "react-icons/lu";
 
 import type { SkillSlug } from "@/content/types";
 
@@ -29,7 +29,8 @@ export const Icons = {
     github: SiGithub,
     leetcode: SiLeetcode,
     linkedin: FaLinkedin,
-    mail: LuMail
+    mail: LuMail,
+    arrowUpRight: LuArrowUpRight
 }
 
 export const skillIcons: Record<SkillSlug, IconType> = {

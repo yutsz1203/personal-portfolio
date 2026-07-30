@@ -3,12 +3,17 @@ import Link from "next/link";
 import { Reveal } from "@/components/motion/reveal";
 import { HERO_ENTRANCE_END } from "@/components/motion/timing";
 import { Hero } from "@/components/sections/hero";
+import type { ProjectRowEntry } from "@/components/sections/project-row";
+import { Projects } from "@/components/sections/projects";
 import { Skills } from "@/components/sections/skills";
 import { Timeline, type TimelineEntry } from "@/components/sections/timeline";
 import { education } from "@/content/education";
 import { experience } from "@/content/experience";
+import { featuredProjects } from "@/content/projects";
 import { skills } from "@/content/skills";
+import type { Image, Project } from "@/content/types";
 import { formatDateRange } from "@/lib/format-date";
+import { Icons } from "@/components/common/icons"
 
 const experienceEntries: TimelineEntry[] = experience.map((item) => ({
   date: formatDateRange(item.dates),
@@ -28,6 +33,20 @@ const educationEntries: TimelineEntry[] = education.map((item) => ({
     : item.degree,
   bullets: item.highlights,
 }));
+
+const featuredProjectRows: ProjectRowEntry[] = featuredProjects
+  .filter(
+    (project): project is Project & { image: Image } => project.image !== undefined,
+  )
+  .map(({ slug, name, blurb, image, tech, liveUrl, repoUrl }) => ({
+    slug,
+    name,
+    blurb,
+    image,
+    tech,
+    liveUrl,
+    repoUrl,
+  }));
 
 export default function Home() {
   return (
@@ -54,6 +73,16 @@ export default function Home() {
             Projects
           </h2>
         </Reveal>
+        <Projects entries={featuredProjectRows} />
+        <Reveal className="mt-8">
+        <Link
+          href="/projects"
+          className="inline-flex items-center gap-1 text-body-sm text-muted-foreground no-underline transition-colors hover:text-foreground hover:underline"
+        >
+          View all projects
+          <Icons.arrowUpRight aria-hidden className="size-3.5" />
+        </Link>
+      </Reveal>
       </section>
 
       <section id="skills" className="mx-auto max-w-3xl pb-16">
@@ -74,13 +103,13 @@ export default function Home() {
         <Timeline entries={educationEntries} />
       </section>
 
-      <section className="mx-auto max-w-3xl pb-16">
+      {/* <section className="mx-auto max-w-3xl pb-16">
         <Reveal>
           <h2 className="mb-8 border-b border-border pb-3 font-heading text-subheading leading-subheading">
             Books
           </h2>
         </Reveal>
-      </section>
+      </section> */}
     </main>
   );
 }

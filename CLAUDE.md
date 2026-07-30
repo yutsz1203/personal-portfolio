@@ -1,46 +1,121 @@
 # CLAUDE.md
 
-Project rules. These apply to every session in this repo, without exception.
+Personal portfolio site. Minimal, mostly black-and-white with a clay accent, light/dark,
+static Next.js on Vercel. Project rules below apply to every session in this repo.
 
-## Session start checklist
+## Remaining work
 
-Before touching any code, in this order:
+Everything else is built. Only two content areas are still unwritten:
 
-1. Read `NOTES.md` and identify the last completed milestone.
-2. Re-read that milestone and the next one in `PLAN.md`.
-3. State in chat: which milestone you are starting, its build mode, and — explicitly —
-   what is listed as out of scope for it.
+1. **Projects** — `sections/projects.tsx` + `project-row.tsx`, rendered on `/` (featured
+   subset, heading links to `/projects`) and on `/projects` (all projects).
+2. **Books** — `sections/books.tsx` + `book-cover.tsx`, rendered on `/` (teaser, links to
+   `/books`) and on `/books`.
 
-If `NOTES.md` has no checkpoint bullets for the last milestone, say so and ask whether to
-proceed. Do not start a new milestone on top of an unreviewed one.
+`src/app/projects/page.tsx` and `src/app/books/page.tsx` are still stubs — bare `<ul>`
+markup, no styling. `src/app/page.tsx` has empty `<section>` shells for both (the Projects
+and Books headings with nothing under them). Those four spots are the targets.
+
+`src/content/projects.ts` and `src/content/books.ts` hold **placeholder data**, and the
+images they reference (`public/projects/*.webp`, `public/books/*.webp`) **do not exist
+yet**. Build against the types, not the placeholder strings. Do not invent real project or
+book content — ask.
 
 ## Hard rules
 
-- **One milestone per session.** Stop at `STOP HERE`, even when the next step is obvious,
-  trivial, or already half-written in your head.
-- **Answer the explain-it-back questions unprompted** as soon as the milestone's code is
-  written. Answer them specifically: name the actual file and line, the actual tradeoff,
-  and the actual corner cut. "It's a best practice" is not an answer.
-- **Say what you cut.** Every milestone, list anything you simplified, stubbed, or
-  hardcoded, even if it works fine. Silent shortcuts are the failure mode this file
-  exists to prevent.
-- **No silent decisions.** Where `PLAN.md` is underspecified, state both options and your
-  pick with a one-line reason *before* implementing.
-- **Keep diffs readable.** If a milestone's diff would exceed roughly 400 lines of
-  meaningful code, stop and propose a split rather than producing it.
-- **Don't commit yourself.** Let the user to do all the git actions.
+- **No git actions.** No commit, no branch, no push, no PR. The user does all of it.
+- **Say what you cut.** After each change, list anything simplified, stubbed, or
+  hardcoded, even if it works.
+- **No silent decisions.** Where this file is underspecified, state the options and your
+  pick with a one-line reason before implementing.
+- **Keep diffs readable.** Past roughly 400 lines of meaningful code, stop and propose a
+  split.
 
-## Settled decisions
+## Stack facts that differ from defaults
 
-The "Settled decisions" table in `PLAN.md` is closed. Do not relitigate mid-build —
-propose changes as a `NOTES.md` entry instead, and only if something in it is actually
-broken rather than merely not your preference.
+Read these before writing code; several are not what training data assumes.
+
+- **Next.js 16, App Router.** See `AGENTS.md` — read the relevant guide in
+  `node_modules/next/dist/docs/` before using framework APIs.
+- **Motion is the `motion` package**, not `framer-motion`. Import from `"motion/react"`.
+- **Tailwind v4, no `tailwind.config.ts`.** All tokens live in `src/app/globals.css`
+  under `@theme` / `@theme inline`, with `:root` and `.dark` blocks.
+- **Icons come from `react-icons`** (`Si*` set), not `simple-icons`. Slugs are typed as
+  `SkillSlug` in `src/content/types.ts` and mapped in `src/components/common/icons.tsx`.
+- **shadcn/ui components are copied in** under `src/components/ui/`. Only Button and
+  DropdownMenu exist; add more only on demand.
+- Fully static: no route handlers, no SSR, no DB, no external content source.
 
 ## Style
 
 - TypeScript, no `any`.
-- Server components by default; `"use client"` only where interactivity or framer-motion
-  requires it, and say why when you add it.
-- Colour comes from the semantic tokens in `globals.css`. No raw hex values in
-  components.
-- No new dependency without naming it in chat first, with the reason and what it replaces.
+- Server components by default. `"use client"` only where interactivity or `motion`
+  requires it, and say why when adding it.
+- Colour comes from the semantic tokens (`bg-background`, `text-muted-foreground`,
+  `border-border`, `accent-clay`, …). No raw hex in components.
+- Type scale tokens too: `text-caption`, `text-body-sm`, `text-body`, `text-subheading`,
+  `text-heading`, `text-display`, each with its matching `leading-*` / `tracking-*`.
+- Headings use `font-heading` (the serif).
+- Images always through `next/image`, with the `Image` type from `content/types.ts`
+  supplying `src`/`alt`/`width`/`height` — dimensions are known at build, so no layout
+  shift.
+
+## Conventions to match
+
+**Home page sections.** Current live order in `src/app/page.tsx`: Hero, Experience,
+Projects, Skills & Technologies, Education, Books. Each section is:
+
+```tsx
+<section id="projects" className="mx-auto max-w-3xl pb-16">
+  <Reveal>
+    <h2 className="mb-8 border-b border-border pb-3 font-heading text-subheading leading-subheading">
+      Projects
+    </h2>
+  </Reveal>
+  {/* content */}
+</section>
+```
+
+The Projects and Books shells currently have **no `id`**. `nav-bar.tsx` routes those two
+to `/projects` and `/books` rather than anchors, so an `id` is optional — but add one if
+anything links to them in-page, and keep `nav-bar.tsx` and `mobile-nav.tsx` in sync.
+
+**Motion.** Reuse the primitives; do not hand-roll animation.
+
+- `Reveal` — one element rises/fades. `trigger="view"` (default) or `"mount"` for
+  above-the-fold content, plus optional `delay`.
+- `StaggerList` / `StaggerItem` — parent orchestrates children. The `as` prop picks the
+  tag (`ul`, `ol`, `li`, …) so markup stays semantic.
+- Shared numbers live in `components/motion/timing.ts`. Hero-adjacent content chains off
+  `HERO_ENTRANCE_END`; don't hardcode competing delays.
+- `useReducedMotion` is honoured inside the primitives — keep it that way.
+
+**Data mapping.** Pages map content into presentational props at the top of the file (see
+`experienceEntries` / `educationEntries` in `page.tsx`) rather than passing raw content
+types into components. `featuredProjects` is already exported from `content/projects.ts`.
+
+## Design intent for the two remaining sections
+
+Settled earlier; treat as the starting point, not up for redesign.
+
+- **Project rows**: text on one side (name, blurb, tech tags as plain monochrome text,
+  live / source links), full-colour screenshot on the other via `next/image`, stacking on
+  mobile.
+- **Book covers**: hover animation — cover lifts, tilts slightly, shadow deepens.
+
+## Non-goals
+
+Do not build these, and do not propose them mid-task:
+
+- Blog / writing section
+- Standalone contact section, or a contact form with any backend
+- CV PDF download button
+- `/projects/[slug]` detail pages, or book detail views
+- Filtering, sorting, search, tag pages, pagination
+- Reading progress or star ratings on books
+- Desaturating project screenshots — they are full colour on purpose
+- MDX, a CMS, or any external content source
+- i18n
+- Any design system beyond the token block in `globals.css`
+
+Good ideas outside this list go in `docs/NOTES.md`, not into the code.
