@@ -1,4 +1,4 @@
-import { skillIcons } from "@/components/common/icons";
+import { skillIconHoverColors, skillIcons } from "@/components/common/icons";
 import { StaggerItem, StaggerList } from "@/components/motion/stagger-list";
 import type { SkillGroup } from "@/content/types";
 
@@ -22,9 +22,12 @@ export function Skills({ groups }: { groups: SkillGroup[] }) {
               return (
                 <span
                   key={skill.slug}
-                  className="flex items-center gap-2 text-body-sm text-muted-foreground transition-colors hover:text-foreground"
+                  className="group flex items-center gap-2 text-body-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  <Icon aria-hidden className="size-4 shrink-0" />
+                  <Icon
+                    aria-hidden
+                    className={`size-4 shrink-0 transition-colors ${skillIconHoverColors[skill.slug]}`}
+                  />
                   {skill.name}
                 </span>
               );

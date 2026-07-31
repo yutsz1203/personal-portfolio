@@ -17,7 +17,13 @@ export type ProjectRowEntry = {
 const LINK_CLASS =
   "inline-flex items-center gap-1 text-body-sm text-muted-foreground no-underline transition-colors hover:text-accent-clay hover:underline";
 
-export function ProjectRow({ entry }: { entry: ProjectRowEntry }) {
+export function ProjectRow({
+  entry,
+  priority = false,
+}: {
+  entry: ProjectRowEntry;
+  priority?: boolean;
+}) {
   const links = [
     entry.liveUrl ? { href: entry.liveUrl, label: "Live" } : null,
     entry.repoUrl ? { href: entry.repoUrl, label: "Source" } : null,
@@ -67,6 +73,7 @@ export function ProjectRow({ entry }: { entry: ProjectRowEntry }) {
           width={entry.image.width}
           height={entry.image.height}
           sizes="(min-width: 640px) 24rem, 100vw"
+          priority={priority}
           className="h-full w-full object-cover"
         />
       </div> 

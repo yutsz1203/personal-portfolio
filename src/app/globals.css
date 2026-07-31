@@ -134,6 +134,25 @@
   --accent-clay-hover: var(--color-clay-deep);
 
   --selection: var(--color-clay-pale);
+
+  --brand-python: #3776ab;
+  --brand-typescript: #3178c6;
+  --brand-r: #276dc3;
+  --brand-pandas: #150458;
+  --brand-numpy: #013243;
+  --brand-scikitlearn: #f7931e;
+  --brand-react: #087ea4; 
+  --brand-tailwindcss: #0891b2;
+  --brand-nextdotjs: #000000;
+  --brand-postgresql: #4169e1;
+  --brand-mysql: #4479a1;
+  --brand-git: #f05032;
+  --brand-github: #181717;
+  --brand-claudecode: #d97757;
+  --brand-linux: #a97e00; 
+  --brand-vercel: #000000;
+  --brand-docker: #2496ed;
+  --brand-postman: #ff6c37;
 }
 
 .dark {
@@ -163,6 +182,21 @@
   --accent-clay-hover: var(--color-clay-soft);
 
   --selection: var(--color-clay-dark);
+
+  --brand-python: #5ba3d9;
+  --brand-typescript: #529be0;
+  --brand-r: #5b9bd5;
+  --brand-pandas: #a68bf0;
+  --brand-numpy: #4dabcf;
+  --brand-react: #61dafb;
+  --brand-tailwindcss: #22d3ee;
+  --brand-nextdotjs: #f0eee6;
+  --brand-postgresql: #7b96ec;
+  --brand-mysql: #6ba4cc;
+  --brand-github: #f0eee6;
+  --brand-claudecode: #e08b6b;
+  --brand-linux: #fcc624;
+  --brand-vercel: #f0eee6;
 }
 
 @layer base {

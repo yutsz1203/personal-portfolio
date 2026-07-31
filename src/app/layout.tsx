@@ -33,9 +33,10 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
+      data-scroll-behavior="smooth"
       className={`${sans.variable} ${serif.variable} h-full antialiased scroll-smooth`}
     >
-        <body className="flex min-h-full flex-col">
+        <body className="flex min-h-full flex-col" suppressHydrationWarning>
           <ThemeProvider
             attribute="class"
             defaultTheme="light"
