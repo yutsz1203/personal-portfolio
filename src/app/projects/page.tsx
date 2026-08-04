@@ -17,15 +17,15 @@ const allProjectRows: ProjectRowEntry[] = projects
 
 export default function ProjectsPage() {
   return (
-    <main>
+    <div className="px-6">
       <section className="mx-auto max-w-3xl pb-16">
-          <Reveal>
-            <h2 className="mb-8 border-b border-border pb-3 font-heading text-subheading leading-subheading">
-              Projects
-            </h2>
-          </Reveal>
-          <Projects entries={allProjectRows} />
-        </section>
-    </main>
+        <Reveal trigger="mount">
+          <h2 className="mb-8 border-b border-border pb-3 font-heading text-subheading leading-subheading">
+            Projects
+          </h2>
+        </Reveal>
+        <Projects entries={allProjectRows} trigger="mount" />
+      </section>
+    </div>
   );
 }
