@@ -7,7 +7,7 @@
 @theme {
   /* Colors — light palette, verbatim from the token export */
   --color-slate-dark: #141413;
-  --color-ivory-medium: #f0eee6;
+  --color-ivory-medium: #faf9f5;
   --color-ivory-light: #faf9f5;
   --color-cloud-medium: #b0aea5;
   --color-cloud-dark: #87867f;
@@ -16,7 +16,7 @@
   --color-oat-warm: #e3dacc;
   --color-manilla: #f5e3c7;
   --color-clay: #d97757;
-  --color-clay-pale: #deb5a4;
+  --color-clay-pale: #e9baaa;
   --color-clay-deep: #c6613f;
   --color-clay-dark: #774635;
 

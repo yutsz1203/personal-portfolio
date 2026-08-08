@@ -40,13 +40,13 @@ export function Hero() {
         <h1 className="font-heading text-4xl leading-[1.1] tracking-heading sm:text-heading">
           {profile.name}
         </h1>
-        <p className="text-body font-semibold sm:text-subheading">
+        <p className="text-body font-semibold sm:text-subheading text-muted-foreground">
           {profile.title}
         </p>
       </StaggerItem>
 
       <StaggerItem>
-        <p className="text-body-sm leading-relaxed text-muted-foreground">
+        <p className="text-body-sm leading-relaxed">
           <RichText value={profile.summary} />
         </p>
       </StaggerItem>
