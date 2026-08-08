@@ -56,6 +56,9 @@
   --text-caption: 12px;
   --leading-caption: 1.4;
   --tracking-caption: -0.24px;
+  --text-nav: 14px;
+  --leading-nav: 1.2;
+  --tracking-nav: -0.07px;
   --text-body-sm: 16px;
   --leading-body-sm: 1;
   --tracking-body-sm: -0.08px;

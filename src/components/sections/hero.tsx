@@ -13,6 +13,7 @@ import { profile } from "@/content/profile";
 const HERO_LINKS = [
   { href: profile.githubUrl, label: "GitHub", icon: Icons.github },
   { href: profile.linkedinUrl, label: "LinkedIn", icon: Icons.linkedin },
+  { href: `mailto:${profile.email}`, label: "Email", icon: Icons.mail },
 ] as const;
 
 export function Hero() {
@@ -52,27 +53,26 @@ export function Hero() {
       </StaggerItem>
 
       <StaggerItem>
-        <ul className="mt-2 flex items-center gap-3">
-          {HERO_LINKS.map(({ href, label, icon: Icon }) => (
-            <li key={label}>
-              <Button variant="outline" asChild className="h-10 px-4">
-                <a href={href} target="_blank" rel="noreferrer">
-                  <Icon />
-                  {label}
-                </a>
-              </Button>
-            </li>
-          ))}
-        </ul>
-      </StaggerItem>
+        <ul className="mt-2 flex flex-wrap items-center justify-center gap-3">
+          {HERO_LINKS.map(({ href, label, icon: Icon }) => {
+            const isMail = href.startsWith("mailto:");
 
-      <StaggerItem>
-        <a
-          href={`mailto:${profile.email}`}
-          className="text-body-sm text-muted-foreground no-underline transition-colors hover:text-foreground hover:underline"
-        >
-          {profile.email}
-        </a>
+            return (
+              <li key={label}>
+                <Button variant="outline" asChild className="h-10 px-4">
+                  <a
+                    href={href}
+                    target={isMail ? undefined : "_blank"}
+                    rel={isMail ? undefined : "noreferrer"}
+                  >
+                    <Icon />
+                    {label}
+                  </a>
+                </Button>
+              </li>
+            );
+          })}
+        </ul>
       </StaggerItem>
     </StaggerList>
   );

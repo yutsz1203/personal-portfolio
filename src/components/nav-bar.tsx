@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { MobileNav } from "@/components/mobile-nav";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { Wordmark } from "@/components/wordmark";
 import { StaggerList, StaggerItem } from "./motion/stagger-list"
 
 const NAV_LINKS = [
@@ -16,21 +17,16 @@ export type NavLink = (typeof NAV_LINKS)[number];
 
 
 const NAV_LINK_CLASS =
-  "px-3 py-2 text-xs font-medium tracking-tight text-muted-foreground no-underline transition-colors hover:text-foreground";
+  "px-3 py-2 text-nav leading-nav tracking-nav text-muted-foreground no-underline transition-colors hover:text-foreground";
 
 export function NavBar() {
   return (
-    <header className="bg-background">
+    <header className="sticky top-0 z-40 bg-background">
       <nav
         aria-label="Main"
         className="mx-auto flex h-14 max-w-5xl items-center justify-between px-6"
       >
-        <Link
-          href="/"
-          className="text-xs font-bold tracking-[0.12em] uppercase no-underline"
-        >
-          Mervin Yu
-        </Link>
+        <Wordmark className="text-body-sm leading-nav font-bold tracking-[0.12em] uppercase no-underline" />
 
         <div className="flex items-center gap-1">
           <StaggerList as="ul" trigger="mount" stagger={0.2} delay={0.15} className="hidden items-center gap-1 md:flex">
