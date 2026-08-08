@@ -18,7 +18,7 @@ type MobileNavProps = {
 };
 
 const MOBILE_LINK_CLASS =
-  "w-full text-xs font-medium tracking-tight text-muted-foreground no-underline";
+  "w-full text-nav leading-nav tracking-nav text-muted-foreground no-underline";
 
 export function MobileNav({ links, className }: MobileNavProps) {
   return (
@@ -45,7 +45,7 @@ export function MobileNav({ links, className }: MobileNavProps) {
         </Button>
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent align="end" sideOffset={8} className="w-40">
+      <DropdownMenuContent align="end" sideOffset={8} className="w-56">
         {links.map(({ href, label }) => (
           <DropdownMenuItem key={href} asChild className="py-3 px-4">
             {href.startsWith("/#") ? (
