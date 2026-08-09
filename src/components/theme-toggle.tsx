@@ -1,6 +1,5 @@
 "use client";
 
-// Client boundary: reads and writes the active theme via next-themes.
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 

@@ -1,6 +1,5 @@
 import type { Education } from "./types";
 
-// TODO: placeholder content — replace with real entries.
 export const education: Education[] = [
   {
     institution: "The Chinese University of Hong Kong",

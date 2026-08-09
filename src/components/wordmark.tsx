@@ -1,12 +1,10 @@
 "use client";
 
-// Client component: the collapse is driven by live scroll position.
 
 import Link from "next/link";
 import { motion, useReducedMotion, type Transition } from "motion/react";
 import { useSyncExternalStore, type ReactNode } from "react";
 
-/** Scroll offset, in px, past which the wordmark collapses to its initials. */
 const COLLAPSE_AT = 16;
 
 function subscribeToScroll(onChange: () => void) {
@@ -14,10 +12,6 @@ function subscribeToScroll(onChange: () => void) {
   return () => window.removeEventListener("scroll", onChange);
 }
 
-// Snapshot is a boolean, so a scroll only re-renders when the wordmark
-// actually has to change state. The server snapshot keeps the markup
-// expanded, and a reload that restores a scrolled position corrects itself
-// on hydration without a mismatch.
 const isScrolled = () => window.scrollY > COLLAPSE_AT;
 const isScrolledOnServer = () => false;
 
@@ -36,7 +30,7 @@ function Collapsing({
 }) {
   return (
     <motion.span
-      className="inline-block overflow-hidden"
+      className="hidden overflow-hidden md:inline-block"
       initial={false}
       animate={{ width: collapsed ? 0 : "auto", opacity: collapsed ? 0 : 1 }}
       transition={transition}
