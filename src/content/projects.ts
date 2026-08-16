@@ -46,6 +46,21 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    slug: "claude-code-monitor",
+    name: "Claude Code Monitor",
+    blurb: "A dashboard showing my Claude Code usages.",
+    liveUrl: "https://mervin-claude-code-usage.vercel.app/",
+    repoUrl: "https://github.com/yutsz1203/claude-code-monitor",
+    image: {
+      src: "/claude-code-monitor.png",
+      alt: "Claude Code Monitor screenshot",
+      width: 1200,
+      height: 750,
+    },
+    tech: ["Claude Code", "Python", "Next.js", "React", "Tailwind CSS"],
+    featured: true,
+  },
+  {
     slug: "worldcup-2026-prediction",
     name: "World Cup 2026 Prediction",
     blurb: "A probabilistic forecasting system for the 2026 FIFA World Cup: independent Poisson regressions on Elo-based covariates, feeding a 100,000-run Monte Carlo simulation of the full 48-team tournament.",
