@@ -52,8 +52,11 @@ export type Project = {
 export type Book = {
   title: string;
   author: string;
-  cover: Image;
+  cover?: Image;
+  readYear: number | "reading";
+  genres: string[];
   note?: string;
+  featured: boolean;
 };
 
 export type SkillSlug =
