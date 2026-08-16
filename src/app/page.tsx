@@ -5,8 +5,10 @@ import { HERO_ENTRANCE_END } from "@/components/motion/timing";
 import { Hero } from "@/components/sections/hero";
 import type { ProjectRowEntry } from "@/components/sections/project-row";
 import { Projects } from "@/components/sections/projects";
+import { Books, type BookEntry } from "@/components/sections/books";
 import { Skills } from "@/components/sections/skills";
 import { Timeline, type TimelineEntry } from "@/components/sections/timeline";
+import { featuredBooks } from "@/content/books";
 import { education } from "@/content/education";
 import { experience } from "@/content/experience";
 import { featuredProjects } from "@/content/projects";
@@ -47,6 +49,16 @@ const featuredProjectRows: ProjectRowEntry[] = featuredProjects
     liveUrl,
     repoUrl,
   }));
+
+const featuredBookEntries: BookEntry[] = featuredBooks.map(
+  ({ title, author, cover, readYear, genres }) => ({
+    title,
+    author,
+    cover,
+    readYear,
+    genres,
+  }),
+);
 
 export default function Home() {
   return (
@@ -103,13 +115,23 @@ export default function Home() {
         <Timeline entries={educationEntries} />
       </section>
 
-      {/* <section className="mx-auto max-w-3xl pb-16">
+      <section className="mx-auto max-w-3xl pb-16">
         <Reveal>
           <h2 className="mb-8 border-b border-border pb-3 font-heading text-subheading leading-subheading">
             Books
           </h2>
         </Reveal>
-      </section> */}
+        <Books entries={featuredBookEntries} />
+        <Reveal className="mt-8">
+          <Link
+            href="/books"
+            className="inline-flex items-center gap-1 text-body-sm text-muted-foreground no-underline transition-colors hover:text-foreground hover:underline"
+          >
+            View all books
+            <Icons.arrowUpRight aria-hidden className="size-3.5" />
+          </Link>
+        </Reveal>
+      </section>
     </main>
   );
 }

@@ -7,9 +7,7 @@ static Next.js on Vercel. Project rules below apply to every session in this rep
 
 Everything else is built. Only two content areas are still unwritten:
 
-1. **Projects** — `sections/projects.tsx` + `project-row.tsx`, rendered on `/` (featured
-   subset, heading links to `/projects`) and on `/projects` (all projects).
-2. **Books** — `sections/books.tsx` + `book-cover.tsx`, rendered on `/` (teaser, links to
+1. **Books** — `sections/books.tsx` + `book-cover.tsx`, rendered on `/` (teaser, links to
    `/books`) and on `/books`.
 
 `src/app/projects/page.tsx` and `src/app/books/page.tsx` are still stubs — bare `<ul>`
@@ -88,7 +86,6 @@ anything links to them in-page, and keep `nav-bar.tsx` and `mobile-nav.tsx` in s
   tag (`ul`, `ol`, `li`, …) so markup stays semantic.
 - Shared numbers live in `components/motion/timing.ts`. Hero-adjacent content chains off
   `HERO_ENTRANCE_END`; don't hardcode competing delays.
-- `useReducedMotion` is honoured inside the primitives — keep it that way.
 
 **Data mapping.** Pages map content into presentational props at the top of the file (see
 `experienceEntries` / `educationEntries` in `page.tsx`) rather than passing raw content
