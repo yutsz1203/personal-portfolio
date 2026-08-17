@@ -58,7 +58,7 @@ export const projects: Project[] = [
       height: 750,
     },
     tech: ["Claude Code", "Python", "Next.js", "React", "Tailwind CSS"],
-    featured: true,
+    featured: false,
   },
   {
     slug: "worldcup-2026-prediction",
