@@ -100,7 +100,7 @@ export const projects: Project[] = [
   {
     slug: "paddock",
     name: "Paddock",
-    blurb: "A bilingualquestion-answering agentic system over HKJC racing data, combining vector retrieval with SQL over a structured corpus. (Work in progress)",
+    blurb: "A bilingual question-answering agentic system over HKJC racing data, combining vector retrieval with SQL over a structured corpus. (Work in progress)",
     repoUrl: "https://github.com/yutsz1203/paddock",
     tech: ["Python", "LangGraph", "FastAPI", "pgvector"],
     featured: false,
