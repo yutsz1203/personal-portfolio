@@ -2,6 +2,19 @@ import type { Book } from "./types";
 
 export const books: Book[] = [
   {
+    title: "Picking Winners: A Horseplayer's Guide",
+    author: "Andrew Beyer",
+    cover: {
+      src: "/books/picking-winners-a-horseplayer-s-guide.jpg",
+      alt: "Picking Winners: A Horseplayer's Guide cover",
+      width: 828,
+      height: 1240,
+    },
+    readYear: "reading",
+    genres: ["Sports Analytics"],
+    featured: true,
+  },
+  {
     title: "Inside the Black Box",
     author: "Rishi K. Narang",
     cover: {
@@ -10,10 +23,10 @@ export const books: Book[] = [
       width: 800,
       height: 1183,
     },
-    readYear: "reading",
+    readYear: 2026,
     genres: ["Trading", "Investing"],
     note: "About Quantitative Trading",
-    featured: true,
+    featured: false,
   },
   {
     title: "We Are the Nerds",
