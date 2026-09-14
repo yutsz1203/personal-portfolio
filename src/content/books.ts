@@ -2,6 +2,19 @@ import type { Book } from "./types";
 
 export const books: Book[] = [
   {
+    title: "Beyer On Speed: New Strategies for Racetrack Betting",
+    author: "Andrew Beyer",
+    cover: {
+      src: "/books/beyer-on-speed-new-strategies-for-racetrack-betting.jpg",
+      alt: "Beyer On Speed: New Strategies for Racetrack Betting cover",
+      width: 826,
+      height: 1240,
+    },
+    readYear: "reading",
+    genres: ["Sports Analytics"],
+    featured: true,
+  },
+  {
     title: "Picking Winners: A Horseplayer's Guide",
     author: "Andrew Beyer",
     cover: {
@@ -10,9 +23,9 @@ export const books: Book[] = [
       width: 828,
       height: 1240,
     },
-    readYear: "reading",
+    readYear: 2026,
     genres: ["Sports Analytics"],
-    featured: true,
+    featured: false,
   },
   {
     title: "Inside the Black Box",

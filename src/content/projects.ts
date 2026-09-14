@@ -61,6 +61,14 @@ export const projects: Project[] = [
     featured: false,
   },
   {
+    slug: "ib-paper-trading-engine",
+    name: "IB Paper Trading Engine",
+    blurb: "Event-driven IBKR paper-trading engine.",
+    repoUrl: "https://github.com/yutsz1203/ib-paper-trading-engine",
+    tech: ["Python", "ib_async", "Redis"],
+    featured: false,
+  },
+  {
     slug: "worldcup-2026-prediction",
     name: "World Cup 2026 Prediction",
     blurb: "A probabilistic forecasting system for the 2026 FIFA World Cup: independent Poisson regressions on Elo-based covariates, feeding a 100,000-run Monte Carlo simulation of the full 48-team tournament.",
