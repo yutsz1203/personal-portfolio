@@ -2,6 +2,19 @@ import type { Book } from "./types";
 
 export const books: Book[] = [
   {
+    title: "Meditations",
+    author: "Marcus Aurelius",
+    cover: {
+      src: "/books/meditations.jpeg",
+      alt: "Meditations cover",
+      width: 775,
+      height: 1240,
+    },
+    readYear: "reading",
+    genres: ["Philosophy", "Self-Help"],
+    featured: true,
+  },
+  {
     title: "Beyer On Speed: New Strategies for Racetrack Betting",
     author: "Andrew Beyer",
     cover: {
@@ -10,9 +23,9 @@ export const books: Book[] = [
       width: 826,
       height: 1240,
     },
-    readYear: "reading",
+    readYear: 2026,
     genres: ["Sports Analytics"],
-    featured: true,
+    featured: false,
   },
   {
     title: "Picking Winners: A Horseplayer's Guide",
