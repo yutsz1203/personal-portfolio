@@ -15,6 +15,9 @@ export const skills: SkillGroup[] = [
       { name: "pandas", slug: "pandas" },
       { name: "NumPy", slug: "numpy" },
       { name: "scikit-learn", slug: "scikitlearn" },
+      { name: "Apache Airflow", slug: "apacheairflow" },
+      { name: "dbt", slug: "dbt" },
+      { name: "Metabase", slug: "metabase" },
     ],
   },
   {
@@ -30,6 +33,7 @@ export const skills: SkillGroup[] = [
     skills: [
       { name: "PostgreSQL", slug: "postgresql" },
       { name: "MySQL", slug: "mysql" },
+      { name: "Redis", slug: "redis" },
     ],
   },
   {

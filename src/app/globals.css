@@ -144,11 +144,15 @@
   --brand-pandas: #150458;
   --brand-numpy: #013243;
   --brand-scikitlearn: #f7931e;
+  --brand-apacheairflow: #017cee;
+  --brand-dbt: #ff694b;
+  --brand-metabase: #509ee3;
   --brand-react: #087ea4; 
   --brand-tailwindcss: #0891b2;
   --brand-nextdotjs: #000000;
   --brand-postgresql: #4169e1;
   --brand-mysql: #4479a1;
+  --brand-redis: #ff4438;
   --brand-git: #f05032;
   --brand-github: #181717;
   --brand-claudecode: #d97757;
@@ -191,6 +195,7 @@
   --brand-r: #5b9bd5;
   --brand-pandas: #a68bf0;
   --brand-numpy: #4dabcf;
+  --brand-apacheairflow: #4da3f5;
   --brand-react: #61dafb;
   --brand-tailwindcss: #22d3ee;
   --brand-nextdotjs: #f0eee6;
