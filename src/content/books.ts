@@ -15,6 +15,19 @@ export const books: Book[] = [
     featured: true,
   },
   {
+    title: "北歐時間: 世界第一幸福國度教會我的事",
+    author: "日暮 いんこ",
+    cover: {
+      src: "/books/book-b3644ca8a7.jpg",
+      alt: "北歐時間: 世界第一幸福國度教會我的事 cover",
+      width: 853,
+      height: 1240,
+    },
+    readYear: 2026,
+    genres: ["Self-Help", "Nonfiction"],
+    featured: false,
+  },
+  {
     title: "Beyer On Speed: New Strategies for Racetrack Betting",
     author: "Andrew Beyer",
     cover: {
