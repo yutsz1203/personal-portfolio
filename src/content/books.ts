@@ -2,6 +2,19 @@ import type { Book } from "./types";
 
 export const books: Book[] = [
   {
+    title: "孫子兵法",
+    author: "孫武",
+    cover: {
+      src: "/books/book-7ec23095c8.jpg",
+      alt: "孫子兵法 cover",
+      width: 665,
+      height: 982,
+    },
+    readYear: "reading",
+    genres: ["Classics"],
+    featured: true,
+  },
+  {
     title: "Meditations",
     author: "Marcus Aurelius",
     cover: {
@@ -10,9 +23,9 @@ export const books: Book[] = [
       width: 775,
       height: 1240,
     },
-    readYear: "reading",
-    genres: ["Philosophy", "Self-Help"],
-    featured: true,
+    readYear: 2026,
+    genres: ["Philosophy", "Self-Help", "Classics"],
+    featured: false,
   },
   {
     title: "北歐時間: 世界第一幸福國度教會我的事",
