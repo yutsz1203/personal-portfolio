@@ -111,22 +111,6 @@ export const projects: Project[] = [
     tech: ["Python", "HK OpenData"],
     featured: false,
   },
-    {
-    slug: "horse-racing-model",
-    name: "Horse Racing Model",
-    blurb: "A multinomial logit model trying to estimate true winning probabilities of horses for gaining an edge over the general public and searching for positive returns at the track. (Work in progress)",
-    repoUrl: "https://github.com/yutsz1203/horse-racing-model",
-    tech: ["Python"],
-    featured: false,
-  },
-  {
-    slug: "paddock",
-    name: "Paddock",
-    blurb: "A bilingual question-answering agentic system over HKJC racing data, combining vector retrieval with SQL over a structured corpus. (Work in progress)",
-    repoUrl: "https://github.com/yutsz1203/paddock",
-    tech: ["Python", "LangGraph", "FastAPI", "pgvector"],
-    featured: false,
-  },
   {
     slug: "home-advantage-investigation",
     name: "Home Advantage Investigation",
